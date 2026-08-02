@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UART Interface</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f4f4f9; }
+    .form-group { margin-bottom: 10px; }
+    label { display: inline-block; width: 100px; }
+    input, select { padding: 5px; width: 200px; }
+    button { padding: 8px 15px; background: #007bff; color: white; border: none; cursor: pointer; margin-top: 10px;}
+    button:hover { background: #0056b3; }
+    textarea { width: 100%; height: 250px; margin-top: 20px; font-family: monospace; background: #1e1e1e; color: #00ff00; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h2>UART Connection</h2>
+  
+  <div class="form-group">
+    <label for="path">Port Path:</label>
+    <input type="text" id="path" value="/dev/ttyUSB0" placeholder="e.g. COM3 or /dev/ttyUSB0">
+  </div>
+  <div class="form-group">
+    <label for="baudRate">Baud Rate:</label>
+    <input type="number" id="baudRate" value="9600">
+  </div>
+  <div class="form-group">
+    <label for="dataBits">Data Bits:</label>
+    <input type="number" id="dataBits" value="8">
+  </div>
+  <div class="form-group">
+    <label for="parity">Parity:</label>
+    <select id="parity">
+      <option value="none">None</option>
+      <option value="even">Even</option>
+      <option value="odd">Odd</option>
+    </select>
+  </div>
+  
+  <button id="connectBtn">Connect & Listen</button>
+
+  <textarea id="output" readonly placeholder="Incoming data will appear here..."></textarea>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
